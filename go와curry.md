@@ -71,6 +71,16 @@ const f = pipe(
 const pipe = (f, ...fs) => (...as) => go(f(...as), ...fs); // 첫번째 함수 꺼내서 한번 적용하고 처리 하도록
 ```
 
+```jsx
+const pipe = (f, ...fs) => (...as) => go(f(...as), ...fs); 
+const newf = pipe(
+  (a,b) => a + b,
+  a => a + 10, // 두번째 함수까지 인자 2개받으면 NaN 리턴..
+  a => a + 10,
+  log
+)
+```
+
 만든 go 로 읽기 좋은 코드 만들기
 
 ```jsx
