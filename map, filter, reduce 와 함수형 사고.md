@@ -178,3 +178,50 @@ const add = (a, b) => a+b;
 변수 이름 누르고 commamd + D
 
 누를 때 마다 같은 이름의 변수 반복선택 된다.
+
+```jsx
+const log = console.log;
+
+const products = [
+  {name : '반팔티', price: 15000},
+  {name : '긴팔티', price: 20000},
+  {name : '핸드폰케이스', price: 15000},
+  {name : '후드티', price: 30000},
+  {name : '바지', price: 25000},
+];
+
+const filter = (cmp, iter) => {
+  let res = [];
+  for(const p of iter) {
+    if(cmp(p)) res.push(p);
+  }
+  console.log('filter : ', res);
+  return res;
+}
+const reduce = (f, acc, iter) => {
+  console.log(f, acc, iter);
+  if(!iter) {
+    iter = acc[Symbol.iterator]();
+    acc = iter.next().value;
+  }
+
+  for(const a of iter) {
+    acc = f(acc, a);
+  }
+  return acc;
+}
+
+const map = (f, iter) => {
+  let res = [];
+  for(const a of iter) {
+    res.push(f(a));
+  }
+  return res;
+}
+const add = (a, b) => a + b;
+const cmp = a => a > 15000;
+log(reduce(
+  add,
+  filter(cmp, 
+    map(p => p.price, products))));
+```
