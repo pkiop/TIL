@@ -15,7 +15,7 @@ log(reduce(
 - 코드가 중첩이 되어있어 읽기 불편하다.
 - 읽기 좋게 해보자.
 
-go 와 pipe
+go 와 pipe (함수형 프로그래밍의 꽃)
 
 - go : 곧바로 값으로  evaluation
 - pipe : function을 return
